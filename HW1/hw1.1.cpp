@@ -2,8 +2,7 @@
 // Author(s):
 /*
  * Jordan Giebas
- * _____
- * _____
+ * Daniel Rojas Coy
  */
 
 
