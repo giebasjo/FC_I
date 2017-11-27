@@ -1,3 +1,5 @@
+#include <fstream>
+using std::ostream;
 
 //
 // File: BinaryTree.h
@@ -23,6 +25,9 @@ public:
     int sum();
     int size();
     double mean();
+    int max();
+    void put_to_ostream(ostream&);
+    bool is_identical(const BinaryTree&);
 private:
     bt_node *top;
 };

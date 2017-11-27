@@ -20,6 +20,9 @@ int binary_tree_min(bt_node *top);
 int binary_tree_sum(bt_node *top);
 int binary_tree_size(bt_node *top);
 double binary_tree_mean(bt_node *top);
+int binary_tree_max(bt_node *top);
+void put_btree_to_os(bt_node *top, ostream& os);
+bool helper_is_identical(bt_node *top, const BinaryTree& bt)
 
 /* --------- BinaryTree member function definitions --------- */
 
@@ -88,6 +91,24 @@ double BinaryTree::mean()
     return binary_tree_mean(top);
 }
 
+int BinaryTree::max()
+{
+    return binary_tree_max(top);
+}
+
+void BinaryTree::put_to_ostream(ostream& os)
+{
+    put_btree_to_os(top, os);
+}
+
+bool BinaryTree::is_identical(const BinaryTree& bt)
+{
+
+    helper_is_identical(top, bt);
+
+}
+
+
 /* --------- the definition of the bt_node structure -------- */
 
 struct bt_node {
@@ -96,9 +117,7 @@ struct bt_node {
     bt_node *right;  // higher values to the right
 };
 
-
 /* --------- functions for interacting with the tree -------- */
-
 
 // put_binary_tree does NOT change the tree, so we only
 // need to pass it a COPY of the top pointer from main
@@ -220,4 +239,75 @@ void binary_tree_delete(bt_node **ptop)
         *ptop = 0;
     }
 }
+
+// binary_tree_max is a accessor, not a mutator. 
+// It simply returns the max element from the tree
+int binary_tree_max(bt_node *top)
+{
+    if (!top)
+        return 0;
+
+    int max(top->value);
+    for (bt_node *p(top->right); p; p = p->right)
+        max = p->value;
+
+    return max;
+}
+
+void put_btree_to_os(bt_node *top, ostream& os)
+{
+    if (top) {
+        put_binary_tree(top->left);
+        os << top->value << " ";
+        put_binary_tree(top->right);
+    }
+}
+
+bool helper_is_identical(bt_node *top, const BinaryTree& other)
+{
+
+    if ((top == nullptr) && (other.top == nullptr)) {
+        return true;
+    }
+
+    if ((top == nullptr && other.top != nullptr) || (top != nullptr && other.top == nullptr)) {
+        return false;
+    }
+
+    if ( top != other.top ) {
+        return false;
+    }
+
+    else {
+
+        if (top->left.is_identical(other.left) && top->right.is_identical(other.right)) {
+
+            return true;
+
+        }
+        
+        return false;
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

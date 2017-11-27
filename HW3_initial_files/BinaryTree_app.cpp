@@ -37,20 +37,16 @@ int main()
     tree1.put();
     cout << " ]\n";
 
-    /*
     // part (c)
-    cout << "tree1 contains: [ ";
+    cout << "tree1 contains (using put to ostream): [ ";
     tree1.put_to_ostream(cout);
     cout << " ]\n";
-    */
 
     cout << "tree1 min: " << tree1.min() << "\n";
-
     cout << "tree1 sum: " << tree1.sum() << "\n";
-
     cout << "tree1 size: " << tree1.size() << "\n";
-
     cout << "tree1 mean: " << tree1.mean() << "\n";
+    cout << "tree1 max: " << tree1.max() << "\n";
 
     BinaryTree tree2(tree1);
 
