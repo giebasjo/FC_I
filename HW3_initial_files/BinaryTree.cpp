@@ -111,6 +111,11 @@ bool BinaryTree::operator==(const BinaryTree& other)
 
 }
 
+bool BinaryTree::operator!=(const BinaryTree& other) 
+{
+    return !((*this)==other); 
+}
+
 void BinaryTree::insert(int value)
 {
     binary_tree_insert_unique(&top, value);

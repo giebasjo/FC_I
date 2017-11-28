@@ -30,6 +30,7 @@ public:
     void put_to_ostream(ostream&);
     bool is_identical(const BinaryTree&);
     bool operator==(const BinaryTree&);
+    bool operator!=(const BinaryTree&);
 private:
     bt_node *top;
 };

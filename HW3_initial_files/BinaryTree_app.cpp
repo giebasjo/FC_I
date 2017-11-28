@@ -144,7 +144,8 @@ int main()
     else
         cout << "tree4 != tree1\n";
 
-    /*
+    cout << "\nTESTING OVERLOADED != OPERATOR\n";
+    
     // part (f)
     if (tree4 != tree5)
         cout << "tree4 != tree5\n";
@@ -160,7 +161,6 @@ int main()
         cout << "tree4 != tree1\n";
     else
         cout << "tree4 == tree1\n";
-    */
 
     /*
     // part (g)
