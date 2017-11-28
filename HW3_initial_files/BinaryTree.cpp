@@ -22,10 +22,10 @@ int binary_tree_size(bt_node *top);
 double binary_tree_mean(bt_node *top);
 int binary_tree_max(bt_node *top);
 void put_btree_to_os(bt_node *top, ostream& os);
-bool helper_is_identical(bt_node *top, const BinaryTree& bt)
+bool helper_is_identical(bt_node *root, bt_node *other_root);
+
 
 /* --------- BinaryTree member function definitions --------- */
-
 // default constructor
 BinaryTree::BinaryTree()
 : top(0)
@@ -103,9 +103,7 @@ void BinaryTree::put_to_ostream(ostream& os)
 
 bool BinaryTree::is_identical(const BinaryTree& bt)
 {
-
-    helper_is_identical(top, bt);
-
+    return helper_is_identical((*this).top, bt.top);
 }
 
 
@@ -263,51 +261,27 @@ void put_btree_to_os(bt_node *top, ostream& os)
     }
 }
 
-bool helper_is_identical(bt_node *top, const BinaryTree& other)
+bool helper_is_identical(bt_node *root, bt_node *other_root)
 {
 
-    if ((top == nullptr) && (other.top == nullptr)) {
+    if ( root == nullptr && other_root == nullptr  ) 
+    {
         return true;
     }
-
-    if ((top == nullptr && other.top != nullptr) || (top != nullptr && other.top == nullptr)) {
-        return false;
-    }
-
-    if ( top != other.top ) {
-        return false;
-    }
-
-    else {
-
-        if (top->left.is_identical(other.left) && top->right.is_identical(other.right)) {
-
-            return true;
-
+    else if ( root != nullptr && other_root != nullptr  ) 
+    {
+        if ( root->value == other_root->value  ) 
+        {
+            return (helper_is_identical(root->right, other_root->right) && helper_is_identical(root->left, other_root->left));
         }
-        
         return false;
-
     }
-
-
+    else 
+    {
+        return false;
+    }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

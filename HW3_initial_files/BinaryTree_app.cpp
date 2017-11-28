@@ -76,12 +76,13 @@ int main()
     tree3.put();
     cout << " ]\n";
 
-    /*
+    
+    //TEST CASES HE INCLUDED
+
     // part (b)
     cout << "tree1 max: " << tree1.max() << "\n";
-    */
 
-    /*
+    cout << "\nTESTING is_identical() FUNCTION\n"; 
     // part (d)
     BinaryTree tree4;
     tree4.insert(12);  tree4.insert(5);  tree4.insert(30);
@@ -100,7 +101,11 @@ int main()
         cout << "tree4 and tree6 are identical\n";
     else
         cout << "tree4 and tree6 are NOT identical\n";
-    */
+
+
+
+
+
 
     /*
     // part (e)
