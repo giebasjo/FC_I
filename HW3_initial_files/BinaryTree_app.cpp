@@ -14,7 +14,7 @@ using namespace std;
 int main()
 {
     BinaryTree tree1;
-    
+
     cout << "tree1 initially contains: [ ";
     tree1.put();
     cout << " ]\n";
@@ -37,21 +37,19 @@ int main()
     tree1.put();
     cout << " ]\n";
 
-
-    /*
-    // part (c)
+    // testing .put_to_ostream() method
+    cout << "\nTESTING .put_to_ostream() METHOD\n";
     cout << "tree1 contains (using put to ostream): [ ";
     tree1.put_to_ostream(cout);
     cout << " ]\n";
-    */
 
-    /*
+    // Statistical operations
+    cout << "\nSTATISTICAL OPERATIONS\n";
     cout << "tree1 min: " << tree1.min() << "\n";
     cout << "tree1 sum: " << tree1.sum() << "\n";
     cout << "tree1 size: " << tree1.size() << "\n";
     cout << "tree1 mean: " << tree1.mean() << "\n";
     cout << "tree1 max: " << tree1.max() << "\n";
-    */
 
     BinaryTree tree2(tree1);
 
@@ -74,6 +72,7 @@ int main()
     BinaryTree tree3;
     tree3.insert(888);
     tree3.insert(-888);
+
     /*
     cout << "tree3 initially contains: [ ";
     tree3.put();
@@ -85,12 +84,9 @@ int main()
     cout << " ]\n";
     */
 
-    cout << "TREE3: [ ";
-    tree3.put();
-    cout << " ]\n";
-
-    // part (b)
-    //cout << "tree1 max: " << tree1.max() << "\n";
+    // testing .max() method
+    cout << "\nTESTING .max() METHOD\n";
+    cout << "tree1 max: " << tree1.max() << "\n";
 
     // part (d)
     BinaryTree tree4;
@@ -101,20 +97,9 @@ int main()
     BinaryTree tree6;
     tree6.insert(30);  tree6.insert(12);  tree6.insert(5);
 
-    cout << "TREE4: [ ";
-    tree4.put();
-    cout << " ]\n";
+    // testing .is_identical() method
+    cout << "\nTESTING .is_identical() METHOD\n"; 
 
-    cout << "TREE5: [ ";
-    tree5.put();
-    cout << " ]\n";
- 
-    cout << "TREE6: [ ";
-    tree6.put();
-    cout << " ]\n";
-
-    // TESTING FOR IDENTICAL
-    cout << "\nTESTING is_identical() FUNCTION\n"; 
     if (tree4.is_identical(tree5))
         cout << "tree4 and tree5 are identical\n";
     else
@@ -125,10 +110,9 @@ int main()
     else
         cout << "tree4 and tree6 are NOT identical\n";
 
-
+    // testing overloaded == operator
     cout << "\nTESTING FOR OVERLOADED == OPERATOR\n";
-
-    // part (e)
+    
     if (tree4 == tree5)
         cout << "tree4 == tree5\n";
     else
@@ -144,9 +128,9 @@ int main()
     else
         cout << "tree4 != tree1\n";
 
+    // testing overloaded != operator
     cout << "\nTESTING OVERLOADED != OPERATOR\n";
-    
-    // part (f)
+
     if (tree4 != tree5)
         cout << "tree4 != tree5\n";
     else
@@ -162,13 +146,14 @@ int main()
     else
         cout << "tree4 == tree1\n";
 
-    // part (g)
-    cout << "tree1 contains [ " << tree1 << " ]\n\n";
-    cout << "tree2 contains [ " << tree2 << " ]\n\n";
-    cout << "tree3 contains [ " << tree3 << " ]\n\n";
-    cout << "tree4 contains [ " << tree4 << " ]\n\n";
-    cout << "tree5 contains [ " << tree5 << " ]\n\n";
-    cout << "tree6 contains [ " << tree6 << " ]\n\n";
+    // testing overaloaded << operator
+    cout << "\nTESTING OVERLOADED << OPERATOR\n";
+    cout << "tree1 contains [ " << tree1 << " ]\n";
+    cout << "tree2 contains [ " << tree2 << " ]\n";
+    cout << "tree3 contains [ " << tree3 << " ]\n";
+    cout << "tree4 contains [ " << tree4 << " ]\n";
+    cout << "tree5 contains [ " << tree5 << " ]\n";
+    cout << "tree6 contains [ " << tree6 << " ]\n";
 
     // no memory leaks, automagically
     // thanks to destructor!
