@@ -23,7 +23,16 @@ double binary_tree_mean(bt_node *top);
 int binary_tree_max(bt_node *top);
 void put_btree_to_os(bt_node *top, ostream& os);
 bool helper_is_identical(bt_node *root, bt_node *other_root);
+int make_array(bt_node *node, int arr[], int i);
+bool res(int arr1[], int sz1, int arr2[]);
 
+/* --------- the definition of the bt_node structure -------- */
+
+struct bt_node {
+    int value;       // the current values
+    bt_node *left;   // lower values to the left
+    bt_node *right;  // higher values to the right
+};
 
 /* --------- BinaryTree member function definitions --------- */
 // default constructor
@@ -54,6 +63,52 @@ BinaryTree& BinaryTree::operator=(const BinaryTree& other)
 BinaryTree::~BinaryTree()
 {
     binary_tree_delete(&top);
+}
+
+bool res(int arr1[], int sz1, int arr2[])
+{
+
+    for (int k{0}; k < sz1; k++) 
+    {
+        if ( arr1[k] != arr2[k]  )
+        {
+            return false;
+        }
+    }
+
+    return true;
+
+}
+
+bool BinaryTree::operator==(const BinaryTree& other)
+{
+    // retrieve sizes to dynamically store array
+    int curr_size = (*this).size();
+    const int other_size = other.const_size();
+
+    if ( curr_size != other_size)
+    {
+        return false;
+    }
+    else 
+    {
+        // initialize arrays
+        int* curr_arr = new int [curr_size];
+        int* other_arr = new int [other_size];
+
+        // make the arrays using the helper function make_array
+        int i{0}; int j{0};
+        int x = make_array((*this).top, curr_arr, i);
+        int y = make_array(other.top, other_arr, j);
+
+        bool result = res(curr_arr, curr_size, other_arr);
+
+        delete [] curr_arr;
+        delete [] other_arr;
+
+        return result;
+    }
+
 }
 
 void BinaryTree::insert(int value)
@@ -106,14 +161,6 @@ bool BinaryTree::is_identical(const BinaryTree& bt)
     return helper_is_identical((*this).top, bt.top);
 }
 
-
-/* --------- the definition of the bt_node structure -------- */
-
-struct bt_node {
-    int value;       // the current values
-    bt_node *left;   // lower values to the left
-    bt_node *right;  // higher values to the right
-};
 
 /* --------- functions for interacting with the tree -------- */
 
@@ -187,6 +234,22 @@ int binary_tree_size(bt_node *top)
     return binary_tree_size(top->left)
            + 1
            + binary_tree_size(top->right);
+}
+
+int helper_const_size(bt_node* top)
+{
+    if (!top) {
+        return 0;
+    }
+
+    return helper_const_size(top->left) + helper_const_size(top->right) + 1;
+}
+
+int BinaryTree::const_size() const
+{
+
+    return helper_const_size(top);
+
 }
 
 double binary_tree_mean(bt_node *top)
@@ -282,6 +345,35 @@ bool helper_is_identical(bt_node *root, bt_node *other_root)
     }
 
 }
+
+int make_array(bt_node *node, int arr[], int i)
+{
+
+    if ( node == nullptr ) {
+        return i;
+    }
+
+    arr[i] = node->value; i++;
+    if (node->left != nullptr)
+    {
+        i = make_array(node->left, arr, i);
+    }
+    if (node->right != nullptr)
+    {
+        i = make_array(node->right, arr, i);
+    }
+
+    return i;
+
+}
+
+
+
+
+
+
+
+
 
 
 

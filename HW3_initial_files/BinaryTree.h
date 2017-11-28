@@ -24,6 +24,7 @@ public:
     int min();
     int sum();
     int size();
+    int const_size() const;
     double mean();
     int max();
     void put_to_ostream(ostream&);

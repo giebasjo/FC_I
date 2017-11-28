@@ -33,27 +33,33 @@ int main()
     tree1.insert(22);
     tree1.insert(0);
 
-    cout << "tree1 contains: [ ";
+    cout << "\nTREE1: [ ";
     tree1.put();
     cout << " ]\n";
 
+
+    /*
     // part (c)
     cout << "tree1 contains (using put to ostream): [ ";
     tree1.put_to_ostream(cout);
     cout << " ]\n";
+    */
 
+    /*
     cout << "tree1 min: " << tree1.min() << "\n";
     cout << "tree1 sum: " << tree1.sum() << "\n";
     cout << "tree1 size: " << tree1.size() << "\n";
     cout << "tree1 mean: " << tree1.mean() << "\n";
     cout << "tree1 max: " << tree1.max() << "\n";
+    */
 
     BinaryTree tree2(tree1);
 
-    cout << "tree2 initially contains: [ ";
+    cout << "\nTREE2: [ ";
     tree2.put();
     cout << " ]\n";
 
+    /*
     // NOTICE how to put " inside of a string literal!
     cout << "\"pretty print\" of tree1:\n";
     tree1.put_pretty();
@@ -63,10 +69,12 @@ int main()
     tree2.put_pretty();
     cout << "\n";
     cout << "\ntree1 and tree2 should be identical!\n\n";
+    */
 
     BinaryTree tree3;
     tree3.insert(888);
     tree3.insert(-888);
+    /*
     cout << "tree3 initially contains: [ ";
     tree3.put();
     cout << " ]\n";
@@ -75,14 +83,15 @@ int main()
     cout << "after tree3 = tree2, tree3 contains: [ ";
     tree3.put();
     cout << " ]\n";
+    */
 
-    
-    //TEST CASES HE INCLUDED
+    cout << "TREE3: [ ";
+    tree3.put();
+    cout << " ]\n";
 
     // part (b)
-    cout << "tree1 max: " << tree1.max() << "\n";
+    //cout << "tree1 max: " << tree1.max() << "\n";
 
-    cout << "\nTESTING is_identical() FUNCTION\n"; 
     // part (d)
     BinaryTree tree4;
     tree4.insert(12);  tree4.insert(5);  tree4.insert(30);
@@ -92,6 +101,20 @@ int main()
     BinaryTree tree6;
     tree6.insert(30);  tree6.insert(12);  tree6.insert(5);
 
+    cout << "TREE4: [ ";
+    tree4.put();
+    cout << " ]\n";
+
+    cout << "TREE5: [ ";
+    tree5.put();
+    cout << " ]\n";
+ 
+    cout << "TREE6: [ ";
+    tree6.put();
+    cout << " ]\n";
+
+    // TESTING FOR IDENTICAL
+    cout << "\nTESTING is_identical() FUNCTION\n"; 
     if (tree4.is_identical(tree5))
         cout << "tree4 and tree5 are identical\n";
     else
@@ -103,11 +126,8 @@ int main()
         cout << "tree4 and tree6 are NOT identical\n";
 
 
+    cout << "\nTESTING FOR OVERLOADED == OPERATOR\n";
 
-
-
-
-    /*
     // part (e)
     if (tree4 == tree5)
         cout << "tree4 == tree5\n";
@@ -123,7 +143,6 @@ int main()
         cout << "tree4 == tree1\n";
     else
         cout << "tree4 != tree1\n";
-    */
 
     /*
     // part (f)
