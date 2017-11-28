@@ -91,7 +91,6 @@ int main()
     cout << add(1.1, 2.2, 3.3, 4.4) << '\n'; // compiles 
     cout << add('A', 2.2, 1) << '\n'; // will compile, but implicit conversion happening
 
-    /*
     // part (c)
     int i(7), j(13);
     double x(3.14), y(2.18);
@@ -111,7 +110,6 @@ int main()
     cout << "before swap: x: " << x << ", y: " << y << '\n';
     swap(x, y);      // pass references
     cout << "after swap:  x: " << x << ", y: " << y << '\n';
-*/
     
     // part (d)
     cout << "max_of('a', 'b'): " << max_of('a', 'b') << '\n';
