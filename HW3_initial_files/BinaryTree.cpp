@@ -116,6 +116,12 @@ bool BinaryTree::operator!=(const BinaryTree& other)
     return !((*this)==other); 
 }
 
+ostream& operator<<(ostream &os, BinaryTree &bt)
+{
+    put_btree_to_os(bt.top, os);
+    return os;
+}
+
 void BinaryTree::insert(int value)
 {
     binary_tree_insert_unique(&top, value);

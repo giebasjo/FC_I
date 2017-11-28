@@ -31,6 +31,7 @@ public:
     bool is_identical(const BinaryTree&);
     bool operator==(const BinaryTree&);
     bool operator!=(const BinaryTree&);
+    friend ostream& operator<<(ostream&, BinaryTree&);
 private:
     bt_node *top;
 };

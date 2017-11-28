@@ -162,7 +162,6 @@ int main()
     else
         cout << "tree4 == tree1\n";
 
-    /*
     // part (g)
     cout << "tree1 contains [ " << tree1 << " ]\n\n";
     cout << "tree2 contains [ " << tree2 << " ]\n\n";
@@ -170,7 +169,6 @@ int main()
     cout << "tree4 contains [ " << tree4 << " ]\n\n";
     cout << "tree5 contains [ " << tree5 << " ]\n\n";
     cout << "tree6 contains [ " << tree6 << " ]\n\n";
-    */
 
     // no memory leaks, automagically
     // thanks to destructor!
